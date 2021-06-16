@@ -2,5 +2,6 @@ package rules
 import data.dataset
 default allow=false
 allow=true{
-    dataset["users"][input.user][input.method]
+    some i
+    dataset["users"][input.user][i]==input.method
 }
