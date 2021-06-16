@@ -13,7 +13,7 @@ allow=true{
 testA {
   allow with input as {"user":"alice","method":"get"}
   }
-testD {
+testB {
   not allow with input as {"user":"alice","method":"delete"}
   }
 testC {
