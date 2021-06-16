@@ -5,6 +5,7 @@ default testA = false
 default testB = false
 default testC = false
 default testD = false
+default testE = false
 allow=true{
     some i
     dataset["users"][input.user][i]==input.method
@@ -22,3 +23,8 @@ testC {
 testD {
   not allow with input as {"user":"alice","method":"put"}
   }
+  
+testE {
+  not allow with input as {"user":"alice","method":"put"}
+  }
+  
