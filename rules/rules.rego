@@ -1,4 +1,4 @@
-package Web
+package rules
 import data.dataset
 default allow=false
 allow=true{
