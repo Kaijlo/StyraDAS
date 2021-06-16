@@ -22,4 +22,3 @@ testC {
 testD {
   not allow with input as {"user":"alice","method":"put"}
   }
-  
