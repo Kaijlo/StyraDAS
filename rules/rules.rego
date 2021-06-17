@@ -1,14 +1,16 @@
 package rules
 import data.dataset
+import data.global.users
 default allow=false
 default testA = false
 default testB = false
 default testC = false
 default testD = false
 default testE = false
+
 allow=true{
     some i
-    dataset["users"][input.user][i]==input.method
+    users.attributes["users"][input.user][i]==input.method
 }
 
 testA {
