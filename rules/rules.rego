@@ -10,7 +10,7 @@ default testE = false
 
 allow=true{
     some i
-    users.attributes["users"][input.user][i]==input.method
+    dataset.users[input.user][i]==input.method
 }
 
 testA {
