@@ -8,7 +8,7 @@ default testC = false
 default testD = false
 default testE = false
 
-allow=true{
+allow {
     some i
     dataset.users[input.user][i]==input.method
 }
