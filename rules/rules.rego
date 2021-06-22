@@ -14,19 +14,19 @@ allow {
 }
 
 testA {
-  allow with input as {"user":"alice","method":"get"}
+  allow with input as {"input":{"user":"alice","method":"get"}}
   }
 testB {
-  not allow with input as {"user":"alice","method":"delete"}
+  not allow with input as {"input":{"user":"alice","method":"delete"}}
   }
 testC {
-  not allow with input as {"user":"alice","method":"post"}
+  not allow with input as {"input":{"user":"alice","method":"post"}}
   }
 testD {
-  not allow with input as {"user":"alice","method":"put"}
+  not allow with input as {"input":{"user":"alice","method":"put"}}
   }
   
 testE {
-  not allow with input as {"user":"alice","method":"put"}
+  not allow with input as {"input":{"user":"alice","method":"put"}}
   }
   
