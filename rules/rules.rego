@@ -6,7 +6,8 @@ default valid_user=false
 default allow=false
 SQLfetcher (x,y) = c {
   body := {"sql":x,"db":y}
-  c := http.send({"raise_error":false,"method":"POST","url":"http://localhost:6000/sql/fetch","body":body,"headers":{"Content-Type":"application/json"}})
+  p := http.send({"raise_error":false,"method":"POST","url":"http://localhost:6000/sql/fetch","body":body,"headers":{"Content-Type":"application/json"}})
+  c := p.body.body
 }
 SQLdata=SQLfetcher("SELECT * FROM Users.users;","UserSQL")
 valid_method {
