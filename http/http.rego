@@ -1,2 +1,3 @@
 package http
-response := http.send({"method":"GET","url":"http://www.thomas-bayer.com/sqlrest/"})
+response := http.send({"raise_error":false,"method":"GET","url":"http://www.thomas-bayer.com/sqlrest/"})
+
