@@ -4,16 +4,21 @@ import data.global.users
 default valid_method=false
 default valid_user=false
 default allow=false
+SQLfetcher (x,y) = c {
+  body := {"sql":x,"db":y}
+  c := http.send({"raise_error":false,"method":"POST","url":"http://localhost:6000/sql/fetch","body":body,"headers":{"Content-Type":"application/json"}})
+}
+SQLdata=SQLfetcher("SELECT * FROM Users.users;","UserSQL")
 valid_method {
   some i
-    dataset.methods[i]==input.method
+    SQLdata.methods[i]==input.method
 }
 valid_user{
-  dataset.users[input.user]
+  SQLdata.users[input.user]
 }
 allow {
   some i
-    dataset.users[input.user][i]==input.method
+    SQLdata.users[input.user][i]==input.method
 }
 message[reason] {
   not valid_user
