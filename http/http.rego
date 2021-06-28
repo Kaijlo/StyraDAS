@@ -2,7 +2,7 @@ package http
 default valid_method=false
 default valid_user=false
 default allow=false
-SQLdata=http.send({"raise_error":false,"method":"GET","url":"http://34.88.127.167/sqlAPI/"})
+SQLdata=http.send({"raise_error":false,"method":"GET","url":"http://localhost/sqlAPI/"})
 valid_method {
   some i
     SQLdata.methods[i]==input.method
