@@ -2,7 +2,7 @@ package rules
 import data.dataset
 default valid_method=false
 default valid_user=false
-default allow=false
+default allowed=false
 valid_method {
   some i
     dataset.methods[i]==input.method
@@ -10,7 +10,7 @@ valid_method {
 valid_user{
   dataset.users[input.user]
 }
-allow {
+allowed {
   some i
     dataset.users[input.user][i]==input.method
 }
@@ -25,11 +25,11 @@ message[reason] {
 message[reason] {
   valid_user
   valid_method
-  not allow
+  not allowed
   reason := {"reason":"User not authorized"}
 }
 message[reason] {
-  allow
+  allowed
   reason := {"message":"Succefully executed the requested method"}
 }
-response:={"allow":allow,"message":message}
+response:={"allow":allowed,"message":message}
