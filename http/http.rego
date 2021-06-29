@@ -1,7 +1,7 @@
 package http
 default valid_method=false
 default valid_user=false
-default allowHttp=false
+default allow=false
 SQLdata=http.send({"raise_error":false,"method":"GET","url":"http://localhost/sqlAPI/","headers":{"Content-Type":"application/json"}}).body
 valid_method {
   some i
@@ -10,7 +10,7 @@ valid_method {
 valid_user{
   SQLdata.users[input.user]
 }
-allowHttp {
+allow {
   some i
     SQLdata.users[input.user][i]==input.method
 }
@@ -25,11 +25,11 @@ message[reason] {
 message[reason] {
   valid_user
   valid_method
-  not allowHttp
+  not allow
   reason := {"reason":"User not authorized"}
 }
 message[reason] {
-  allowHttp
+  allow
   reason := {"message":"Succefully executed the requested method"}
 }
-response:={"allowHttp":allowHttp,"messageHttp":message}
+response:={"allow":allow,"message":message}
