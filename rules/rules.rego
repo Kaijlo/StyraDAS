@@ -30,6 +30,6 @@ message[reason] {
 }
 message[reason] {
   allow
-  reason := {"message":"Succefully executed the requested method"}
+  reason := {"message":"Successfully executed the requested method"}
 }
 response:={"allow":allow,"message":message}
